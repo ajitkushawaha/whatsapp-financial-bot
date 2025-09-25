@@ -22,10 +22,25 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title="WhatsApp Financial Bot", version="1.0.0")
 
+@app.on_event("startup")
+async def startup_event():
+    """Initialize database tables on startup"""
+    try:
+        from add_data_in_database import create_tables
+        create_tables()
+        logger.info("Database tables initialized successfully on startup")
+    except Exception as e:
+        logger.error(f"Failed to initialize database: {e}")
+
 # WhatsApp API Configuration
 WHAPI_TOKEN = os.getenv("WHAPI_TOKEN", "5neaxPl90yIwcH62CaCd7qesx6DNkylZ")
 WHAPI_BASE_URL = "https://gate.whapi.cloud"
 WEBHOOK_VERIFY_TOKEN = os.getenv("WEBHOOK_VERIFY_TOKEN", "123")
+
+# Initialize database tables
+from add_data_in_database import create_tables
+create_tables()
+logger.info("Database tables initialized successfully")
 
 # Initialize the financial bot
 financial_bot = EnhancedFinancialBot()
