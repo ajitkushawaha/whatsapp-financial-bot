@@ -1,0 +1,36 @@
+{
+  "name": "WhatsApp Financial Bot",
+  "description": "AI-powered WhatsApp bot for financial tracking and information",
+  "repository": "https://github.com/YOUR_USERNAME/whatsapp-financial-bot",
+  "keywords": ["python", "fastapi", "whatsapp", "financial", "ai"],
+  "success_url": "/health",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "env": {
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini API Key",
+      "required": true
+    },
+    "WHAPI_TOKEN": {
+      "description": "whapi.cloud Token",
+      "required": true
+    },
+    "WEBHOOK_VERIFY_TOKEN": {
+      "description": "Webhook Verification Token",
+      "value": "123"
+    },
+    "GOOGLE_API_KEY": {
+      "description": "Google API Key (same as GEMINI_API_KEY)",
+      "required": true
+    }
+  }
+}

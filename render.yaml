@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: whatsapp-financial-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: WHAPI_TOKEN
+        sync: false
+      - key: WEBHOOK_VERIFY_TOKEN
+        value: "123"
+      - key: GOOGLE_API_KEY
+        sync: false
