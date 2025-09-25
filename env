@@ -1,0 +1,14 @@
+GEMINI_API_KEY=AIzaSyDsKlFKvPP2KOmeSpw_V3S7h4QnY1nmbAo
+
+# SQLite Database Configuration
+DATABASE_URL=sqlite:///financial_bot.db
+
+WHAPI_TOKEN=5neaxPl90yIwcH62CaCd7qesx6DNkylZ
+WEBHOOK_VERIFY_TOKEN=123
+
+# Google Gemini API Configuration
+
+# Server Configuration
+HOST=0.0.0.0
+PORT=8000
+DEBUG=True
